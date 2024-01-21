@@ -15,7 +15,7 @@ public class LinkedStack<T> implements StackADT<T> {
 
     public void push(T element){
         Node<T> newNode = new Node<T>(element);
-        top.setNext(newNode);
+        newNode.setNext(top);
         top = newNode;
         count++;
     }
