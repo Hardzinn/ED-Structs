@@ -1,10 +1,11 @@
 package Estruturas.Aplicações;
 
 import Estruturas.Graphs.Network;
+import Exceptions.VertexNotFoundException;
 
 public class network {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws VertexNotFoundException {
         // Create a new Network
         Network<String> network = new Network<>();
 
