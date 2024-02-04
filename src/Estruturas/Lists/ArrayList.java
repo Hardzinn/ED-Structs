@@ -126,6 +126,23 @@ public class ArrayList<T> implements ListADT<T>, Iterable<T>{
         list = tempList;
     }
 
+
+    public void set(int index, T value) {
+        checkIndex(index, 0, count - 1);
+        list[index] = value;
+    }
+
+    private void checkIndex(int index, int min, int max) {
+        if (index < min || index > max) {
+            throw new ArrayIndexOutOfBoundsException("Invalid index " + index);
+        }
+    }
+
+    public T get(int index) {
+        checkIndex(index, 0, count - 1);
+        return list[index];
+    }
+
     public String toString(){
         String str = "";
         for (int i = 0; i < count; i++) {
