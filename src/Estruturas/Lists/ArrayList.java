@@ -39,7 +39,7 @@ public class ArrayList<T> implements ListADT<T>, Iterable<T>{
     public T removeLast() throws EmptyCollectionException {
         if (isEmpty())
             throw new EmptyCollectionException("Empty List");
-
+        count--;
         T element = list[count];
         list[count] = null;
         count--;
