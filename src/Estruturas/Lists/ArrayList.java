@@ -86,11 +86,7 @@ public class ArrayList<T> implements ListADT<T>, Iterable<T>{
 
     @Override
     public T last() {
-        T element = null;
-        if(!isEmpty()){
-            element = list[count--];
-        }
-        return element;
+        return list[count - 1];
     }
 
     @Override
