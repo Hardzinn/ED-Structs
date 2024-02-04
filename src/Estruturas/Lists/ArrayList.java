@@ -26,7 +26,7 @@ public class ArrayList<T> implements ListADT<T>, Iterable<T>{
             throw new EmptyCollectionException("Empty List");
 
         T element = list[0];
-        for (int i = 0; i < list.length; i++) {
+        for (int i = 0; i < list.length - 1; i++) {
             list[i] = list[i+1];
         }
         list[count - 1] = null;
