@@ -88,7 +88,7 @@ public class ArrayList<T> implements ListADT<T>, Iterable<T>{
     public T last() {
         T element = null;
         if(!isEmpty()){
-            element = list[count];
+            element = list[count--];
         }
         return element;
     }
