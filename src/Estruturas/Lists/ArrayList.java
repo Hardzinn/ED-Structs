@@ -42,7 +42,6 @@ public class ArrayList<T> implements ListADT<T>, Iterable<T>{
         count--;
         T element = list[count];
         list[count] = null;
-        count--;
         modCount++;
         return element;
     }
