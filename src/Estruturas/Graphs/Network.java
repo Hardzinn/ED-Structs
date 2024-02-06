@@ -34,11 +34,7 @@ public class Network<T> implements NetworkADT<T>,Serializable {
 
     @Override
     public void addEdge(T vertex1, T vertex2, double weight) {
-        try {
-            addEdge(getIndex(vertex1), getIndex(vertex2), weight);
-        } catch (VertexNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
+        addEdge(getIndex(vertex1), getIndex(vertex2), weight);
     }
 
     /**
@@ -87,11 +83,7 @@ public class Network<T> implements NetworkADT<T>,Serializable {
 
     @Override
     public void addEdge(T vertex1, T vertex2) {
-        try {
-            addEdge(getIndex(vertex1), getIndex(vertex2));
-        } catch (VertexNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
+        addEdge(getIndex(vertex1), getIndex(vertex2));
     }
 
     /**
@@ -109,25 +101,21 @@ public class Network<T> implements NetworkADT<T>,Serializable {
 
     @Override
     public void removeEdge(T vertex1, T vertex2) {
-        try {
-            this.adjMatrix[getIndex(vertex1)][getIndex(vertex2)] = INFINITY;
-            this.adjMatrix[getIndex(vertex2)][getIndex(vertex1)] = INFINITY;
-        } catch (VertexNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
+        this.adjMatrix[getIndex(vertex1)][getIndex(vertex2)] = INFINITY;
+        this.adjMatrix[getIndex(vertex2)][getIndex(vertex1)] = INFINITY;
     }
 
     private boolean indexIsValid(int index) {
         return (index >= 0 && index < this.numVertices);
     }
 
-    private int getIndex(T vertex) throws VertexNotFoundException {
+    private int getIndex(T vertex) {
         for (int i = 0; i < this.numVertices; i++) {
-            if (this.vertices[i] ==  vertex) {
+            if (this.vertices[i].equals(vertex)) {
                 return i;
             }
         }
-        throw new VertexNotFoundException("Vertice não encontrado");
+        return -1;
     }
 
     @Override
